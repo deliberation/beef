@@ -27,6 +27,11 @@ gem 'inherited_resources'
 gem 'factory_girl'
 gem 'haml-rails'
 
+
+group :development, :test do
+  gem 'railsonfire'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
