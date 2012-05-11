@@ -26,6 +26,7 @@ gem 'devise'
 gem 'inherited_resources'
 gem 'factory_girl'
 gem 'haml-rails'
+gem 'formtastic'
 
 
 group :development, :test do

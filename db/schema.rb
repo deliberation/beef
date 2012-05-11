@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511194340) do
+ActiveRecord::Schema.define(:version => 20120511205244) do
+
+  create_table "arguments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "proposition_id"
+    t.text     "text"
+    t.string   "side"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "arguments", ["user_id", "proposition_id", "side"], :name => "side"
 
   create_table "propositions", :force => true do |t|
     t.integer  "user_id"

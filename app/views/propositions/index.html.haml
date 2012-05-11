@@ -1,3 +1,4 @@
 - @propositions.each do |p|
   .title= p.title
   .text= p.text
+  = link_to 'anzeigen', proposition_path(p)

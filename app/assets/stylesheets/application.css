@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
 */
+
+.proposition-show:after {
+  clear: left;
+}
+
+.proposition-show .pro {
+  float:left;
+  width: 400;
+}
+.proposition-show .contra {
+  float:left;
+  width: 400;
+}

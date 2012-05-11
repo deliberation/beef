@@ -1,0 +1,27 @@
+
+.proposition-show
+  .text= @proposition.text
+
+  .pro
+    %p= 'Pro Argumente'
+    - @proposition.arguments.pro.each do |a|
+      .text=a.text
+    .form
+      = semantic_form_for [@proposition, Argument.new] do |f|
+        = f.input :side, :as => :hidden, :value => Argument::PRO
+        = f.input :text, :as => :text
+        = f.actions do
+          = f.action :submit
+      
+  .pro
+    %p= 'Contra Argumente'
+    - @proposition.arguments.contra.each do |a|
+      .text=a.text
+    .form
+      = semantic_form_for [@proposition, Argument.new] do |f|
+        = f.input :side, :as => :hidden, :value => Argument::CONTRA
+        = f.input :text, :as => :text
+        = f.actions do
+          = f.action :submit
+      
+      
