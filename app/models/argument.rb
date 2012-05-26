@@ -10,7 +10,7 @@ class Argument < ActiveRecord::Base
   
   STARS = 5
   
-  MAX_RMS = STARS.to_f / 2 
+  MAX_RMS = (STARS - 1).to_f / 2 # voting range begins with one star
   
   scope :ranked, order('arguments.weight DESC')
   scope :pro, ranked.where(side: :pro)
@@ -57,7 +57,7 @@ class Argument < ActiveRecord::Base
   protected
     
     # RMS is root mean square
-    # 0 : max aggreemend, 1 : max disagreement
+    # 0 : max aggreement, 1 : max disagreement
     def _weight_rms
       Math.sqrt(argument_votes.map{ |v|
         (v.weight.to_f - weight) ** 2
