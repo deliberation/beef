@@ -31,6 +31,7 @@ gem 'formtastic'
 
 group :development, :test do
   gem 'railsonfire'
+  gem 'rspec-rails'
 end
 
 # To use ActiveModel has_secure_password

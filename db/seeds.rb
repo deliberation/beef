@@ -13,6 +13,13 @@ user = User.create(
   password: '123456'
 )
 
+user2 = User.create(
+  first_name: 'Klaus2',
+  last_name: 'Meier',
+  email: 'klaus2@foo.org',
+  password: '123456'
+)
+
 3.times do |i|
   Proposition.create(
     user: user,

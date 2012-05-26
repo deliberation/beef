@@ -18,9 +18,24 @@
 
 .proposition-show .pro {
   float:left;
-  width: 400;
+  width: 400px;
 }
 .proposition-show .contra {
   float:left;
-  width: 400;
+  width: 400px;
+}
+.text {
+  width: 250px;
+  float: left;
+}
+.star{
+  float:left;
+}
+
+.clearfix:after {  /* für Firefox, IE8, Opera, Safari, etc. */
+    content: ".";  
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }

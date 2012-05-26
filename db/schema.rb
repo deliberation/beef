@@ -11,15 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511205244) do
+ActiveRecord::Schema.define(:version => 20120518185151) do
+
+  create_table "argument_votes", :force => true do |t|
+    t.integer  "argument_id"
+    t.integer  "user_id"
+    t.integer  "proposition_id"
+    t.float    "weight"
+    t.float    "relative_weight"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "arguments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "proposition_id"
+    t.float    "weight"
+    t.float    "weight_rms"
+    t.boolean  "voted",          :default => false
     t.text     "text"
     t.string   "side"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "arguments", ["user_id", "proposition_id", "side"], :name => "side"

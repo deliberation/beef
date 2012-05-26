@@ -4,8 +4,13 @@
 
   .pro
     %p= 'Pro Argumente'
+    - weights = @proposition.argument_weights :pro, current_user
     - @proposition.arguments.pro.each do |a|
-      .text=a.text
+      - w = weights[a.id] || -1
+      .argument.clearfix
+        .text="#{a.text} (von #{a.user.try(:email)})"
+        .text= a.voted? ? "Beef-Factor: #{a.weight_rms_percent}%" : ""
+        .star{:'data-path' => proposition_argument_vote_path(@proposition, a), :'data-score' => w}
     .form
       = semantic_form_for [@proposition, Argument.new] do |f|
         = f.input :side, :as => :hidden, :value => Argument::PRO
@@ -15,13 +20,37 @@
       
   .pro
     %p= 'Contra Argumente'
+    - weights = @proposition.argument_weights :contra, current_user
     - @proposition.arguments.contra.each do |a|
-      .text=a.text
+      - w = weights[a.id] || 0
+      .argument.clearfix
+        .text=a.text
+        .star{:'data-path' => proposition_argument_vote_path(@proposition, a), :'data-score' => w}
     .form
       = semantic_form_for [@proposition, Argument.new] do |f|
         = f.input :side, :as => :hidden, :value => Argument::CONTRA
         = f.input :text, :as => :text
         = f.actions do
           = f.action :submit
+          
+:javascript
+  (function(){
+    $('.star').raty({
+     score: function(){ 
+       return  $(this).attr('data-score');
+     },
+     path: '/assets',
+     cancel: false,
+     half: true,
+     click: function(score, evt) {
+          $.ajax({
+            url: $(this).attr('data-path'),
+            type: 'POST',
+            data: {vote: score || 0}
+          });
+       }
+    })
+   
+  })();
       
       
