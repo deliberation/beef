@@ -1,0 +1,17 @@
+deploy:
+  heroku:
+    staging:
+      name: deliberation-beef
+      branch: master
+      backup: false
+      force: true
+      migrate: true
+      restore_production: false
+      url: http://deliberation-beef.heroku.com
+    production:
+      name: deliberation-beef
+      branch: master
+      backup: true
+      force: false
+      migrate: true
+      url: http://deliberation-beef.heroku.com
