@@ -1,17 +1,17 @@
+id: f81579b0-8c03-012f-051d-12313810a9d0
+setup:
+  commands:
+  - bundle install --without development production
+  - bundle exec rake db:migrate
+test:
+  commands:
+  - bundle exec rake
 deploy:
   heroku:
     staging:
-      name: deliberation-beef
-      branch: master
-      backup: false
-      force: true
-      migrate: true
-      restore_production: false
-      url: http://deliberation-beef.heroku.com
+      name: ''
     production:
       name: deliberation-beef
-      branch: master
-      backup: true
-      force: false
-      migrate: true
-      url: http://deliberation-beef.heroku.com
+      backup: false
+ruby_versions:
+- 1.9.3
