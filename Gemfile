@@ -29,9 +29,9 @@ gem 'formtastic'
 
 
 group :development, :test do
-  gem 'railsonfire'
+  #gem 'railsonfire', '>= 0.2.1'
   gem 'rspec-rails'
-  #gem 'sqlite'
+  gem 'sqlite3'
 end
 
 # To use ActiveModel has_secure_password
