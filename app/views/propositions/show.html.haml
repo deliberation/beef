@@ -1,5 +1,6 @@
 
 .proposition-show
+  %h3= @proposition.title + (@proposition.lqfb_identifier.present? ? " (LQFB ##{@proposition.lqfb_identifier})" : "")
   .text= @proposition.text
 
   .pro

@@ -12,6 +12,10 @@
  *= require_tree .
 */
 
+ul, li {
+  display: block;
+} 
+
 .proposition-show:after {
   clear: left;
 }
@@ -24,7 +28,7 @@
   float:left;
   width: 400px;
 }
-.text {
+.argument .text {
   width: 250px;
   float: left;
 }
