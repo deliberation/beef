@@ -2,7 +2,7 @@ class LQFB::Base
   
   API_KEY = ENV['LQFB_API_KEY']
   API_DOMAIN = ENV['LQFB_API_DOMAIN']
-  API_PATH = ENV['LQFB_API_PATH'].gsub(/\/$/,'')
+  API_PATH = (ENV['LQFB_API_PATH'] || "").gsub(/\/$/,'') # todo: workaround for tests, needs to be solved
   
   
   protected

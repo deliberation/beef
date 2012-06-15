@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615175949) do
+ActiveRecord::Schema.define(:version => 20120615220416) do
 
   create_table "argument_votes", :force => true do |t|
     t.integer  "argument_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20120615175949) do
   create_table "arguments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "proposition_id"
-    t.float    "weight"
+    t.float    "weight",         :default => 0.0
     t.float    "weight_rms"
     t.boolean  "voted",          :default => false
     t.text     "text"
