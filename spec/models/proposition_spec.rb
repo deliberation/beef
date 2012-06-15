@@ -1,0 +1,5 @@
+describe Proposition do
+  
+
+
+end

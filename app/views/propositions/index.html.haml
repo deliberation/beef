@@ -1,4 +1,12 @@
-- @propositions.each do |p|
-  .title= p.title
-  .text= p.text
-  = link_to 'anzeigen', proposition_path(p)
+%ul
+  - @propositions.each do |p|
+    %li.clearfix
+      /.text= truncate p.text, length: 100
+      = link_to proposition_path(p) do
+        .title= p.title
+      
+  
+aus Bundes LQFB importieren:
+= form_for :import, url: import_from_lqfb_propositions_path do |f|
+  = f.text_field :id
+  = f.submit

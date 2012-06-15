@@ -4,6 +4,18 @@ class Proposition < ActiveRecord::Base
   has_many :arguments
   
   
+  def self.import_from_lqfb(lqfb_id)
+    data = LQFB::Initiative.get(id: lqfb_id.to_s)
+    prop = new(
+      title: data['name'],
+      text: data['current_draft_content']
+    )
+    prop.lqfb_identifier = data['id']
+    prop.save!
+    prop
+  end
+  
+  
   def argument_weights side, user
     @weights ||= Hash[
       argument_votes(side, user).map{|v| 

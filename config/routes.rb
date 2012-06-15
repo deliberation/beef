@@ -4,6 +4,7 @@ Beef::Application.routes.draw do
   root :to => 'propositions#index'
   
   resources :propositions do
+    collection{ post :import_from_lqfb }
     resources :arguments do
       post :vote
     end

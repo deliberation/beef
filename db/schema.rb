@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120518185151) do
+ActiveRecord::Schema.define(:version => 20120615175949) do
 
   create_table "argument_votes", :force => true do |t|
     t.integer  "argument_id"
@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(:version => 20120518185151) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "lqfb_identifier"
   end
 
   create_table "users", :force => true do |t|

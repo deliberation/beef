@@ -1,3 +1,16 @@
 == Beef
 
 A tool for decision preparation
+
+(<Ruby|URL:http://deliberation-beef.herokuapp.com>)
+
+
+== Installation
+
+To use the LiquidFeedback API Integration, the following environment Variables have to be set:
+
+(<Ruby|URL:http://liquidfeedback.org/>)
+
+LQFB_API_KEY=<your_api_key>
+LQFB_API_DOMAIN=lqfb.piratenpartei.de
+LQFB_API_PATH=/pp/api
